@@ -1,0 +1,21 @@
+name: panvimdoc
+
+on: [push]
+
+jobs:
+  custom_test:
+    runs-on: ubuntu-latest
+    name: pandoc to vimdoc
+    steps:
+      - uses: actions/checkout@v3
+      - name: panvimdoc
+        uses: kdheepak/panvimdoc@main
+        with:
+          vimdoc: nx.nvim
+          description: Utility library to nx up your work with the nvim api
+          version: "Neovim >= 0.8.0"
+          treesitter: true
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "ci: auto generate docs"
+          branch: ${{ github.head_ref }}
