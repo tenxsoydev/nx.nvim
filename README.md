@@ -599,6 +599,6 @@ There is always room for enhancement. Reach out if you experience any issues, wo
 
 ### Credits
 
-- [nxvim](nxvim)
+- [nxvim](https://github.com/tenxsoydev/nxvim/)
 
 [1]: ./preview/lsp-hover.png
