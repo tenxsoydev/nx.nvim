@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: JohnnyMorganz/stylua-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: 0.16.1
+          args: --check .
+
+  test:
+    needs: format
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        nvim-versions: ["stable", "nightly"]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - uses: rhysd/action-setup-vim@v1
+        with:
+          neovim: true
+          version: ${{ matrix.nvim-versions }}
+      - name: run tests
+        run: make -C ./tests test
+
+  docs:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Generate docs
+        uses: kdheepak/panvimdoc@main
+        with:
+          vimdoc: nx
+          description: Utility library to nx up your work with the nvim api
+          version: "Neovim >= 0.8.0"
+          demojify: true
+          treesitter: true
+      - name: Commit docs
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "ci: auto generate docs"
+          branch: ${{ github.head_ref }}
