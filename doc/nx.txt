@@ -5,13 +5,13 @@ Table of Contents                                       *nx-table-of-contents*
 
 1. nx.nvim                                                        |nx-nx.nvim|
   - Features                                                     |nx-features|
-  - nx.map 🗺️                                         |nx-nx.map-🗺️|
-  - nx.hl 🎨                                                 |nx-nx.hl-🎨|
-  - nx.au 🤖                                                 |nx-nx.au-🤖|
-  - nx.cmd ⚙️                                           |nx-nx.cmd-⚙️|
-  - nx.set 🛠️                                         |nx-nx.set-🛠️|
-  - Getting Started 🚀                             |nx-getting-started-🚀|
-  - Contribution 🤝                                   |nx-contribution-🤝|
+  - nx.map                                                         |nx-nx.map|
+  - nx.hl                                                           |nx-nx.hl|
+  - nx.au                                                           |nx-nx.au|
+  - nx.cmd                                                         |nx-nx.cmd|
+  - nx.set                                                         |nx-nx.set|
+  - Getting Started                                       |nx-getting-started|
+  - Contribution                                             |nx-contribution|
 
 ==============================================================================
 1. nx.nvim                                                        *nx-nx.nvim*
@@ -45,7 +45,7 @@ extended functionalities.
 
 <br>
 
-NX.MAP 🗺️                                             *nx-nx.map-🗺️*
+NX.MAP                                                             *nx-nx.map*
 
 **Based on `vim.keymap.set()`**
 
@@ -62,7 +62,7 @@ NX.MAP 🗺️                                             *nx-nx.map-🗺️*
     - `{<wrapper_opts>}`: to add options to all keymaps within a `nx.map()`
 
 
-                                                                 *nx-Examples*
+                                                           *nx-map()-Examples*
 
 >lua
     nx.map({
@@ -87,7 +87,7 @@ NX.MAP 🗺️                                             *nx-nx.map-🗺️*
 <
 
 
-Examples                               <br>
+map() Examples                         <br>
 
 
 <details open>
@@ -198,7 +198,7 @@ Detailed Examples ~ <sub><sup>click to close…</sup></sub>
     <
     <br>
 - CUSTOM WHICH-KEY LABELS
-    Register which-key labels that should differ from the mappings description.
+    Register which-key labels that should differ from the mappings’ description.
     They can be a `string` literal, `"ignore"`(^=`"which_key_ignore"`), or `{
     sub_desc = "<pattern>" }` to exclude a pattern of the mappings `desc` key.
     The example below uses `wk_label` for a "`SnipRun`-keymap-family". It excludes
@@ -237,7 +237,7 @@ Detailed Examples ~ <sub><sup>click to close…</sup></sub>
 
 <br>
 
-NX.HL 🎨                                                     *nx-nx.hl-🎨*
+NX.HL                                                               *nx-nx.hl*
 
 **Based on `nvim_set_hl()`**
 
@@ -254,7 +254,7 @@ NX.HL 🎨                                                     *nx-nx.hl-🎨*
 - `{<wrapper_opts>}` to add values to all highlights within a `nx.hl()`
 
 
-                                                                 *nx-Examples*
+                                                            *nx-hl()-Examples*
 
 >lua
     nx.hl({
@@ -267,7 +267,7 @@ NX.HL 🎨                                                     *nx-nx.hl-🎨*
 <
 
 
-Examples                               <br>
+hl() Examples                          <br>
 
 
 Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
@@ -312,7 +312,7 @@ Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
 
 <br>
 
-NX.AU 🤖                                                     *nx-nx.au-🤖*
+NX.AU                                                               *nx-nx.au*
 
 **Based on `nvim_create_autocmd()`**
 
@@ -326,7 +326,7 @@ NX.AU 🤖                                                     *nx-nx.au-🤖*
     - `{<wrapper_opts>}` to add values to all autocmds within a `nx.au()`
 
 
-                                                                 *nx-Examples*
+                                                            *nx-au()-Examples*
 
 >lua
     nx.au({
@@ -340,7 +340,7 @@ NX.AU 🤖                                                     *nx-nx.au-🤖*
 <
 
 
-Examples                               <br>
+au() Examples                          <br>
 
 
 Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
@@ -384,7 +384,7 @@ Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
 
 <br>
 
-NX.CMD ⚙️                                               *nx-nx.cmd-⚙️*
+NX.CMD                                                             *nx-nx.cmd*
 
 **Based on `nvim_create_user_command()`**
 
@@ -397,7 +397,7 @@ NX.CMD ⚙️                                               *nx-nx.cmd-⚙️*
 - `{<wrapper_opts>}` to add values to all commands within a `nx.cmd()`
 
 
-                                                                  *nx-Example*
+                                                           *nx-cmd()-Examples*
 
 >lua
     nx.cmd({
@@ -409,7 +409,7 @@ NX.CMD ⚙️                                               *nx-nx.cmd-⚙️*
 <
 
 
-Example                                <br>
+cmd() Examples                         <br>
 
 
 Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
@@ -433,21 +433,24 @@ Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
 
 <br>
 
-NX.SET 🛠️                                             *nx-nx.set-🛠️*
+NX.SET                                                             *nx-nx.set*
 
-There is also `nx.set` to assign multiple variables or options. Next to an
-array of variables/settings, add the scope (`vim.g|vim.opt|vim.bo|...`) as a
-second parameter. If no scope is specified `vim.g` is used.
+There is also `nx.set` to assign multiple variables or options.
+
+Next to an array of variables/settings, add the scope
+(`vim.g|vim.opt|vim.bo|...`) as a second parameter. If no scope is specified
+`vim.g` is used.
 
 (This features function currently consists of just over 10 lines of code.
 It’s not as extensive or well annotated, but feel free to use it if you
 like).
 
-<br>
+                                                           *nx-set()-Examples*
 
-Examples ~ <sub><sup>click to expand…</sup></sub>
+Details ~ <sub><sup>click to expand…</sup></sub>
 
-<br>
+set() Examples                         <br>
+
 
 
 - Variables
@@ -500,7 +503,7 @@ Examples ~ <sub><sup>click to expand…</sup></sub>
 
 <br>
 
-GETTING STARTED 🚀                                 *nx-getting-started-🚀*
+GETTING STARTED                                           *nx-getting-started*
 
 Install `"tenxsoydev/nx.nvim"` via your favorite plugin manager.
 
@@ -510,8 +513,9 @@ use.<br>
                                                                  *nx-Examples*
 
 
-- Examples                               Set it once as global variable so it can
-                                           be called anywhere in a configuration
+- Examples                               Set it once as global variable, so it
+                                           can be called anywhere in a
+                                           configuration
     >lua
         -- if using a global variable, make sure it's set where it will be loaded before it's used in another place
         _G.nx = require("nx")
@@ -556,7 +560,7 @@ of your fellow developer.
 
 <br>
 
-CONTRIBUTION 🤝                                       *nx-contribution-🤝*
+CONTRIBUTION                                                 *nx-contribution*
 
 There is always room for enhancement. Reach out if you experience any issues,
 would like to request a feature, or submit improvements. If you would like to

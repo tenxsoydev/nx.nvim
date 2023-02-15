@@ -23,7 +23,7 @@ All features maintain familiarity with their underlying base functions and shoul
 
 <br>
 
-## nx.map 🗺️
+## nx.map
 
 **Based on `vim.keymap.set()`**
 
@@ -38,7 +38,7 @@ All features maintain familiarity with their underlying base functions and shoul
     - `ft`: to create filetype specific mappings
   - `{<wrapper_opts>}`: to add options to all keymaps within a `nx.map()`
 
-#### Examples
+#### map() Examples
 
 ```lua
 nx.map({
@@ -177,7 +177,7 @@ nx.map({
 
 - ##### Custom which-key labels
 
-  Register which-key labels that should differ from the mappings description.
+  Register which-key labels that should differ from the mappings' description.
   They can be a `string` literal, `"ignore"`(^=`"which_key_ignore"`), or `{ sub_desc = "<pattern>" }` to exclude a pattern of the mappings `desc` key.
 
   <!-- panvimdoc-ignore-start -->
@@ -294,7 +294,7 @@ nx.map({
 
 <br>
 
-## nx.hl 🎨
+## nx.hl
 
 **Based on `nvim_set_hl()`**
 
@@ -309,7 +309,7 @@ nx.map({
   - `:#b`: to transform the brightness of a color
 - `{<wrapper_opts>}` to add values to all highlights within a `nx.hl()`
 
-#### Examples
+#### hl() Examples
 
 ```lua
 nx.hl({
@@ -368,7 +368,7 @@ nx.hl({
 
 <br>
 
-## nx.au 🤖
+## nx.au
 
 **Based on `nvim_create_autocmd()`**
 
@@ -380,7 +380,7 @@ nx.hl({
     - `create_group`: to create a group and add the `autocmd|autocmd[]` to that group
   - `{<wrapper_opts>}` to add values to all autocmds within a `nx.au()`
 
-#### Examples
+#### au() Examples
 
 ```lua
 nx.au({
@@ -438,7 +438,7 @@ nx.au({
 
 <br>
 
-## nx.cmd ⚙️
+## nx.cmd
 
 **Based on `nvim_create_user_command()`**
 
@@ -449,7 +449,7 @@ nx.au({
 - `opts`: are passed inline instead of in a separate table
 - `{<wrapper_opts>}` to add values to all commands within a `nx.cmd()`
 
-#### Example
+#### cmd() Examples
 
 ```lua
 nx.cmd({
@@ -483,17 +483,19 @@ nx.cmd({
 
 <br>
 
-## nx.set 🛠️
+## nx.set
 
 There is also `nx.set` to assign multiple variables or options.
+
 Next to an array of variables/settings, add the scope (`vim.g|vim.opt|vim.bo|...`) as a second parameter. If no scope is specified `vim.g` is used.
 
 (This features function currently consists of just over 10 lines of code. It's not as extensive or well annotated, but feel free to use it if you like).
 
-<br>
+#### set() Examples
 
 <details>
-<summary><b>Examples</b> <sub><sup>click to expand...</sup></sub></summary><br>
+
+<summary><b>Details</b> <sub><sup>click to expand...</sup></sub></summary><br>
 
 - Variables
 
@@ -549,7 +551,7 @@ Next to an array of variables/settings, add the scope (`vim.g|vim.opt|vim.bo|...
 
 <br>
 
-## Getting Started 🚀
+## Getting Started
 
 Install `"tenxsoydev/nx.nvim"` via your favorite plugin manager.
 
@@ -557,7 +559,7 @@ The only thing left to do then is to import the `nx` functions you want to use.<
 
 #### Examples
 
-- Set it once as global variable so it can be called anywhere in a configuration
+- Set it once as global variable, so it can be called anywhere in a configuration
 
   ```lua
   -- if using a global variable, make sure it's set where it will be loaded before it's used in another place
@@ -602,7 +604,7 @@ To be easily composable, the utilities are written as single modules that can st
 
 <br>
 
-## Contribution 🤝
+## Contribution
 
 There is always room for enhancement. Reach out if you experience any issues, would like to request a feature, or submit improvements. If you would like to tackle open issues - they are usually "help wanted" by nature. Leaving an emoji to show support for an idea that has already been requested also helps to prioritize community needs.
 
