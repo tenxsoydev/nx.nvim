@@ -16,9 +16,8 @@ jobs:
         uses: kdheepak/panvimdoc@main
         with:
           vimdoc: nx
-          description: Utility library to nx up your work with the nvim api
+          description: Utility library to n^x your work with the nvim api
           version: "Neovim >= 0.8.0"
-          demojify: true
           treesitter: true
       - name: Commit docs
         uses: stefanzweifel/git-auto-commit-action@v4

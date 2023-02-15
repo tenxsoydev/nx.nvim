@@ -1,6 +1,6 @@
 # nx.nvim
 
-_Utility library to n<sup>x</sup> up your work with the nvim api._
+_Utility library to n^x your work with the nvim api._
 
 <br>
 
