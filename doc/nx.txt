@@ -3,7 +3,7 @@
 ==============================================================================
 Table of Contents                                       *nx-table-of-contents*
 
-1. nx.nvim                                                       |nx-nx.nvim-|
+1. nx.nvim                                                        |nx-nx.nvim|
   - Features                                                     |nx-features|
   - nx.map                                                        |nx-nx.map-|
   - nx.hl                                                          |nx-nx.hl-|
@@ -14,9 +14,9 @@ Table of Contents                                       *nx-table-of-contents*
   - Contribution                                            |nx-contribution-|
 
 ==============================================================================
-1. nx.nvim                                                       *nx-nx.nvim-*
+1. nx.nvim                                                        *nx-nx.nvim*
 
-_Utilitylibrary to n<sup>x</sup> up your work with the nvim api._
+_Utility library to n<sup>x</sup> up your work with the nvim api._
 
 <br>
 
@@ -90,7 +90,9 @@ NX.MAP                                                            *nx-nx.map-*
 Examples                               <br>
 
 
-Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
+<details open>
+
+Detailed Examples ~ <sub><sup>click to close…</sup></sub>
 
 <br>
 
