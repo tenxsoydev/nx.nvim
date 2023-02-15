@@ -38,7 +38,7 @@ All features maintain familiarity with their underlying base functions and shoul
     - `ft`: to create filetype specific mappings
   - `{<wrapper_opts>}`: to add options to all keymaps within a `nx.map()`
 
-#### Examples
+#### `map` Examples
 
 ```lua
 nx.map({
@@ -309,7 +309,7 @@ nx.map({
   - `:#b`: to transform the brightness of a color
 - `{<wrapper_opts>}` to add values to all highlights within a `nx.hl()`
 
-#### Examples
+#### `hl` Examples
 
 ```lua
 nx.hl({
@@ -380,7 +380,7 @@ nx.hl({
     - `create_group`: to create a group and add the `autocmd|autocmd[]` to that group
   - `{<wrapper_opts>}` to add values to all autocmds within a `nx.au()`
 
-#### Examples
+#### `au` Examples
 
 ```lua
 nx.au({
@@ -449,7 +449,7 @@ nx.au({
 - `opts`: are passed inline instead of in a separate table
 - `{<wrapper_opts>}` to add values to all commands within a `nx.cmd()`
 
-#### Example
+#### `cmd` Examples
 
 ```lua
 nx.cmd({
@@ -486,14 +486,16 @@ nx.cmd({
 ## nx.set 🛠️
 
 There is also `nx.set` to assign multiple variables or options.
+
 Next to an array of variables/settings, add the scope (`vim.g|vim.opt|vim.bo|...`) as a second parameter. If no scope is specified `vim.g` is used.
 
 (This features function currently consists of just over 10 lines of code. It's not as extensive or well annotated, but feel free to use it if you like).
 
-<br>
+#### `set` Examples
 
 <details>
-<summary><b>Examples</b> <sub><sup>click to expand...</sup></sub></summary><br>
+
+<summary><b>Details</b> <sub><sup>click to expand...</sup></sub></summary><br>
 
 - Variables
 
