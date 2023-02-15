@@ -8,6 +8,10 @@ on:
       - "**/*.yml"
       - "**/*.toml"
   pull_request:
+    paths:
+      - "**/*.lua"
+      - "**/*.yml"
+      - "**/*.toml"
   workflow_dispatch:
 
 jobs:
