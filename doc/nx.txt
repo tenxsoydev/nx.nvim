@@ -5,13 +5,13 @@ Table of Contents                                       *nx-table-of-contents*
 
 1. nx.nvim                                                        |nx-nx.nvim|
   - Features                                                     |nx-features|
-  - nx.map                                                        |nx-nx.map-|
-  - nx.hl                                                          |nx-nx.hl-|
-  - nx.au                                                          |nx-nx.au-|
-  - nx.cmd                                                        |nx-nx.cmd-|
-  - nx.set                                                        |nx-nx.set-|
-  - Getting Started                                      |nx-getting-started-|
-  - Contribution                                            |nx-contribution-|
+  - nx.map                                                         |nx-nx.map|
+  - nx.hl                                                           |nx-nx.hl|
+  - nx.au                                                           |nx-nx.au|
+  - nx.cmd                                                         |nx-nx.cmd|
+  - nx.set                                                         |nx-nx.set|
+  - Getting Started                                       |nx-getting-started|
+  - Contribution                                             |nx-contribution|
 
 ==============================================================================
 1. nx.nvim                                                        *nx-nx.nvim*
@@ -45,9 +45,9 @@ extended functionalities.
 
 <br>
 
-NX.MAP                                                            *nx-nx.map-*
+NX.MAP                                                             *nx-nx.map*
 
-**Basedon `vim.keymap.set()`**
+**Based on `vim.keymap.set()`**
 
 **Differences**
 
@@ -62,7 +62,7 @@ NX.MAP                                                            *nx-nx.map-*
     - `{<wrapper_opts>}`: to add options to all keymaps within a `nx.map()`
 
 
-                                                           *nx-`map`-Examples*
+                                                           *nx-map()-Examples*
 
 >lua
     nx.map({
@@ -87,7 +87,7 @@ NX.MAP                                                            *nx-nx.map-*
 <
 
 
-`map` Examples                         <br>
+map() Examples                         <br>
 
 
 <details open>
@@ -100,11 +100,11 @@ Detailed Examples ~ <sub><sup>click to close…</sup></sub>
 - FEATURE OVERVIEW
     >lua
         nx.map({ ";q", "<Cmd>confirm quit<CR>", desc = "Close Current Window" })
-        ---@  set a single keymap
-        ---@  or lists of keymaps
+        ---@ ╰── set a single keymap
+        ---@ ╭── or lists of keymaps
         nx.map({
            -- Line Navigation
-           ---@     multiple lhs
+           ---@    ╭── multiple lhs
            { { "j", "<Up>" }, "&wrap ? 'gj' : 'j'", "" },
            { { "k", "<Down>" }, "&wrap ? 'gk' : 'k'", "" },
            { "$", "&wrap ? 'g$' : '$'", "" },
@@ -114,13 +114,13 @@ Detailed Examples ~ <sub><sup>click to close…</sup></sub>
            { "a", function() return smart_indent "a" end },
            { "A", function() return smart_indent "A" end },
            }, { expr = true, silent = true })
-        ---@       wrapper opts apply options to all entries
+        ---@      ╰── wrapper opts apply options to all entries
         
         nx.map({
            { "<Esc>", "<Esc>", "i" },
            { "<C-c>", "<Cmd>close<CR>", { "i", "x" } },
            { "q", "<Cmd>close<CR>", "x" },
-           ---@ set filetype keymaps  (in {wrapper_opts} or for single keymaps)
+           ---@ set filetype keymaps ──╮ (in {wrapper_opts} or for single keymaps)
         }, { buffer = 0, ft = "DressingInput" })
     <
     <br>
@@ -130,7 +130,7 @@ Detailed Examples ~ <sub><sup>click to close…</sup></sub>
     >lua
         nx.map({
         { "<kEnter>", "<CR>", { "", "!" }, desc = "Enter" }
-        ---@ ^=                       or  
+        ---@ ^=                      ╰── or  ──╮
         { "<kEnter>", "<CR>", desc = "Enter", mode = { "", "!" } }
         }, { mode = { "", "!" }) -- or in wrapper_opts (here it has to be the `mode` key)
     <
@@ -139,7 +139,7 @@ Detailed Examples ~ <sub><sup>click to close…</sup></sub>
     Add options to all entries in a list of keymaps _- inline keymap options are
     treated with higher priority and won’t be overwritten by wrapper options_. As
     an example let’s use nx.map for <a target="_blank"
-    href="https://github.com/neovim/nvim-lspconfigsuggested-configuration">nvim-lspconfigsuggested-configuration</a>
+    href="https://github.com/neovim/nvim-lspconfig#suggested-configuration">nvim-lspconfig#suggested-configuration</a>
     >lua
         ---@ common
         
@@ -198,7 +198,7 @@ Detailed Examples ~ <sub><sup>click to close…</sup></sub>
     <
     <br>
 - CUSTOM WHICH-KEY LABELS
-    Register which-key labels that should differ from the mappings description.
+    Register which-key labels that should differ from the mappings’ description.
     They can be a `string` literal, `"ignore"`(^=`"which_key_ignore"`), or `{
     sub_desc = "<pattern>" }` to exclude a pattern of the mappings `desc` key.
     The example below uses `wk_label` for a "`SnipRun`-keymap-family". It excludes
@@ -237,9 +237,9 @@ Detailed Examples ~ <sub><sup>click to close…</sup></sub>
 
 <br>
 
-NX.HL                                                              *nx-nx.hl-*
+NX.HL                                                               *nx-nx.hl*
 
-**Basedon `nvim_set_hl()`**
+**Based on `nvim_set_hl()`**
 
 **Differences**
 
@@ -250,24 +250,24 @@ NX.HL                                                              *nx-nx.hl-*
 - `values`: are passed inline instead of in a separate table
 - modifiers for values:
     - `:bg|:fg`: to use single values of other highlights as color source instead of linking the whole group.
-    - `:b`: to transform the brightness of a color
+    - `:#b`: to transform the brightness of a color
 - `{<wrapper_opts>}` to add values to all highlights within a `nx.hl()`
 
 
-                                                            *nx-`hl`-Examples*
+                                                            *nx-hl()-Examples*
 
 >lua
     nx.hl({
      { "LineNr", fg = "DraculaComment:fg" },
      { "Normal", bg = "DraculaBg:bg" },
-     { "BgDarker", bg = palette.bg .. ":b-15" },
-     { "BufferLineSeparatorShadow", fg = "TabLine:bg:b-10", bg = "Normal:bg" } }
+     { "BgDarker", bg = palette.bg .. ":#b-15" },
+     { "BufferLineSeparatorShadow", fg = "TabLine:bg:#b-10", bg = "Normal:bg" } }
      { { "Directory", "MarkSign" }, link = "DraculaPurple" },
     })
 <
 
 
-`hl` Examples                          <br>
+hl() Examples                          <br>
 
 
 Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
@@ -278,24 +278,24 @@ Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
 - FEATURE OVERVIEW
     >lua
         nx.hl({ "GitSignsCurrentLineBlame", fg = "Debug:fg", bg = "CursorLine:bg", italic = true })
-        ---@  set a single highlight
-        ---@  or lists of highlights
+        ---@ ╰── set a single highlight
+        ---@ ╭── or lists of highlights
         nx.hl({
-           { "Hex", fg = "9370DB" },            --   
-           { "ColorName", fg = "MediumPurple" }, ---@   kinds of values already possible without nx.nvim
-           { "Decimal", fg = 9662683 },          --   
+           { "Hex", fg = "#9370DB" },            --   ╮
+           { "ColorName", fg = "MediumPurple" }, ---@ ├  kinds of values already possible without nx.nvim
+           { "Decimal", fg = 9662683 },          --   ╯
            --
            { "Winbar", fg = "DraculaComment:fg" },
-           ---@                         use single values from other highlight groups
+           ---@                       ╭────╯  use single values from other highlight groups
            { "Normal", bg = "DraculaBg:bg" },
-           ---@ use a color with transformed brightness    darken
-           { "BufferLineSeparatorShadow", fg = "TabLine:bg:b-10", bg = "Normal:bg" } }
-           ---@ e.g., with hex var           brighten
-           { "BgLight", bg = palette.bg .. ":b+15" },
-           ---@            multiple highlight names
+           ---@ use a color with transformed brightness  ──╮ ╭─ darken
+           { "BufferLineSeparatorShadow", fg = "TabLine:bg:#b-10", bg = "Normal:bg" } }
+           ---@ e.g., with hex var ──╮         ╭─ brighten
+           { "BgLight", bg = palette.bg .. ":#b+15" },
+           ---@           ╭── multiple highlight names
            { { "Directory", "MarkSign" }, link = "DraculaPurple" },
         }, { bold = true, italic = true })
-        ---@     wrapper opts apply values to all entries
+        ---@    ╰── wrapper opts apply values to all entries
     <
     <br>
 - WRAPPER OPTIONS
@@ -304,17 +304,17 @@ Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
     >lua
         nx.hl({
            { "NeoTreeTabActive", bg = "NeoTreeNormal:bg" },
-           { "NeoTreeTabInactive", fg = "NeoTreeDimText:fg" },   -- 
-           { "NeoTreeTabSeparatorInactive", fg = "TabLine:bg" }, -- 
-        }, { bg = "TabLine:bg" }) ---@    applies `bg` these     -- 
+           { "NeoTreeTabInactive", fg = "NeoTreeDimText:fg" },   -- ╮
+           { "NeoTreeTabSeparatorInactive", fg = "TabLine:bg" }, -- ┤
+        }, { bg = "TabLine:bg" }) ---@    applies `bg` these     -- ╯
     <
 
 
 <br>
 
-NX.AU                                                              *nx-nx.au-*
+NX.AU                                                               *nx-nx.au*
 
-**Basedon `nvim_create_autocmd()`**
+**Based on `nvim_create_autocmd()`**
 
 **Differences**
 
@@ -326,7 +326,7 @@ NX.AU                                                              *nx-nx.au-*
     - `{<wrapper_opts>}` to add values to all autocmds within a `nx.au()`
 
 
-                                                            *nx-`au`-Examples*
+                                                            *nx-au()-Examples*
 
 >lua
     nx.au({
@@ -334,13 +334,13 @@ NX.AU                                                              *nx-nx.au-*
        { "BufWritePre", command = "call mkdir(expand('<afile>:p:h'), 'p')", desc = "Create non-existent parents" },
     })
     nx.au({
-       { "BufWinLeave", pattern = ".", command = "mkview" },
-       { "BufWinEnter", pattern = ".", command = "silent! loadview" },
+       { "BufWinLeave", pattern = "*.*", command = "mkview" },
+       { "BufWinEnter", pattern = "*.*", command = "silent! loadview" },
     }, { create_group = "RememberFolds" })
 <
 
 
-`au` Examples                          <br>
+au() Examples                          <br>
 
 
 Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
@@ -350,14 +350,14 @@ Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
 
 - FEATURE DESCRIPTION
     >lua
-        nx.au({ "FocusGained", pattern = ".", command = "checktime", desc = "Check if buffer changed outside of vim" })
-        ---@  create a single autocommand
-        ---@  or lists of autocommands
+        nx.au({ "FocusGained", pattern = "*.*", command = "checktime", desc = "Check if buffer changed outside of vim" })
+        ---@ ╰── create a single autocommand
+        ---@ ╭── or lists of autocommands
         nx.au({
-           { "BufWinLeave", pattern = ".", command = "mkview" },
-           { "BufWinEnter", pattern = ".", command = "silent! loadview" },
-        }, { pattern = "." })
-        ---@      wrapper opts apply values to all entries without them
+           { "BufWinLeave", pattern = "*.*", command = "mkview" },
+           { "BufWinEnter", pattern = "*.*", command = "silent! loadview" },
+        }, { pattern = "*.*" })
+        ---@     ╰── wrapper opts apply values to all entries without them
     <
     <br>
 - AUTOCOMMAND GROUPS
@@ -375,18 +375,18 @@ Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
            end,
         })
         nx.au({
-           { "BufWinLeave", pattern = ".", command = "mkview" },
-           { "BufWinEnter", pattern = ".", command = "silent! loadview" },
-           ---@    create an autocommand group in `wrapper_opts` and add all autocommands within this "nx.au()" call
+           { "BufWinLeave", pattern = "*.*", command = "mkview" },
+           { "BufWinEnter", pattern = "*.*", command = "silent! loadview" },
+           ---@   ╭── create an autocommand group in `wrapper_opts` and add all autocommands within this "nx.au()" call
         }, { create_group = "RememberFolds" })
     <
 
 
 <br>
 
-NX.CMD                                                            *nx-nx.cmd-*
+NX.CMD                                                             *nx-nx.cmd*
 
-**Basedon `nvim_create_user_command()`**
+**Based on `nvim_create_user_command()`**
 
 **Differences**
 
@@ -397,7 +397,7 @@ NX.CMD                                                            *nx-nx.cmd-*
 - `{<wrapper_opts>}` to add values to all commands within a `nx.cmd()`
 
 
-                                                           *nx-`cmd`-Examples*
+                                                           *nx-cmd()-Examples*
 
 >lua
     nx.cmd({
@@ -409,7 +409,7 @@ NX.CMD                                                            *nx-nx.cmd-*
 <
 
 
-`cmd` Examples                         <br>
+cmd() Examples                         <br>
 
 
 Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
@@ -419,23 +419,23 @@ Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
 
 - FEATURE DESCRIPTION
     >lua
-        ---@  create a single command
+        ---@ ╭── create a single command
         nx.cmd({ "ResetTerminal", function() vim.cmd("set scrollback=1 | sleep 10m | set scrollback=10000") end })
-        ---@  or lists of commands
+        ---@ ╭── or lists of commands
         nx.cmd({
            { "LspFormat", function() vim.lsp.buf.format({ async = true }) end },
            { "LspToggleAutoFormat", function(opt) toggle_format_on_save(opt.args) end, nargs = "?" },
            { "ToggleBufferDiagnostics", function() toggle_buffer_diags(vim.fn.bufnr()) end },
         }, { bang = true })
-        ---@    wrapper opts apply options to all entries without them
+        ---@   ╰── wrapper opts apply options to all entries without them
     <
 
 
 <br>
 
-NX.SET                                                            *nx-nx.set-*
+NX.SET                                                             *nx-nx.set*
 
-Thereis also `nx.set` to assign multiple variables or options.
+There is also `nx.set` to assign multiple variables or options.
 
 Next to an array of variables/settings, add the scope
 (`vim.g|vim.opt|vim.bo|...`) as a second parameter. If no scope is specified
@@ -445,11 +445,11 @@ Next to an array of variables/settings, add the scope
 It’s not as extensive or well annotated, but feel free to use it if you
 like).
 
-                                                           *nx-`set`-Examples*
+                                                           *nx-set()-Examples*
 
 Details ~ <sub><sup>click to expand…</sup></sub>
 
-`set` Examples                         <br>
+set() Examples                         <br>
 
 
 
@@ -476,7 +476,7 @@ Details ~ <sub><sup>click to expand…</sup></sub>
            showmode = false, -- print vim mode on enter
            termguicolors = true, -- set term gui colors
            timeoutlen = 350, -- time to wait for a mapped sequence to complete
-           fillchars__append = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:›, vert:]],
+           fillchars__append = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:›, vert:▏]],
            listchars__append = [[space:⋅, trail:⋅, eol:↴]],
            -- Auxiliary files
            undofile = true, -- enable persistent undo
@@ -503,9 +503,9 @@ Details ~ <sub><sup>click to expand…</sup></sub>
 
 <br>
 
-GETTING STARTED                                          *nx-getting-started-*
+GETTING STARTED                                           *nx-getting-started*
 
-Install`"tenxsoydev/nx.nvim"` via your favorite plugin manager.
+Install `"tenxsoydev/nx.nvim"` via your favorite plugin manager.
 
 The only thing left to do then is to import the `nx` functions you want to
 use.<br>
@@ -513,8 +513,9 @@ use.<br>
                                                                  *nx-Examples*
 
 
-- Examples                               Set it once as global variable so it can
-                                           be called anywhere in a configuration
+- Examples                               Set it once as global variable, so it
+                                           can be called anywhere in a
+                                           configuration
     >lua
         -- if using a global variable, make sure it's set where it will be loaded before it's used in another place
         _G.nx = require("nx")
@@ -553,15 +554,15 @@ REUSABILITY ~
 
 To be easily composable, the utilities are written as single modules that can
 stand on their own. So if they can be helpful within the project you are
-working - and adding dependencies is too heavy - they are light copy pasta. In
-such cases, keeping a small reference of attribution warms the heart of your
-fellow developer.
+working - and adding dependencies is too heavy - they are light copy pasta
+🍝. In such cases, keeping a small reference of attribution warms the heart
+of your fellow developer.
 
 <br>
 
-CONTRIBUTION                                                *nx-contribution-*
+CONTRIBUTION                                                 *nx-contribution*
 
-Thereis always room for enhancement. Reach out if you experience any issues,
+There is always room for enhancement. Reach out if you experience any issues,
 would like to request a feature, or submit improvements. If you would like to
 tackle open issues - they are usually "help wanted" by nature. Leaving an emoji
 to show support for an idea that has already been requested also helps to
