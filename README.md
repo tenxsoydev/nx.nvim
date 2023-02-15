@@ -6,14 +6,14 @@ _Utility library to n^x your work with the nvim api._
 
 **Features**
 
-- [Keymaps](#nxmap-%EF%B8%8F)
-- [Highlights](https://www.github.com)
-- [Autocommands](#nxau-%EF%B8%8F)
-- [Commands](https://www.github.com)
+- [Keymaps](#nxmap)
+- [Highlights](#nxhl)
+- [Autocommands](#nxau)
+- [Commands](#nxcmd)
 
 **Installation**
 
-- [Getting Started](https://www.github.com)
+- [Getting Started](#getting-started)
 
 <br>
 
@@ -288,7 +288,7 @@ nx.map({
 
   <!-- panvimdoc-ignore-end -->
 
-  This requires your runtime environment to be configured to include your plugin directories. An easy way is to have this automated using https://github.com/folke/neodev.nvim.
+  This requires your runtime environment to be configured to include your plugin directories. An easy way is to have this automated using <a target="_blank" href="https://github.com/folke/neodev.nvim">folke/neodev.nvim</a>.
 
 </details>
 
@@ -615,5 +615,3 @@ There is always room for enhancement. Reach out if you experience any issues, wo
 ### Credits
 
 - [nxvim](https://github.com/tenxsoydev/nxvim/)
-
-[1]: ./preview/lsp-hover.png
