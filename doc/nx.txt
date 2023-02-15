@@ -24,15 +24,15 @@ _Utility library to n^x your work with the nvim api._
 
 
 - |nx-keymaps|
-- Highlights <https://www.github.com>
+- |nx-highlights|
 - |nx-autocommands|
-- Commands <https://www.github.com>
+- |nx-commands|
 
 
 **Installation**
 
 
-- Getting Started <https://www.github.com>
+- |nx-getting-started|
 
 
 <br>
@@ -231,8 +231,8 @@ Detailed Examples ~ <sub><sup>click to close…</sup></sub>
     Allow your language server to assist you with hovers, completions, and
     diagnostics.
     This requires your runtime environment to be configured to include your plugin
-    directories. An easy way is to have this automated using
-    https://github.com/folke/neodev.nvim.
+    directories. An easy way is to have this automated using <a target="_blank"
+    href="https://github.com/folke/neodev.nvim">folke/neodev.nvim</a>.
 
 
 <br>
