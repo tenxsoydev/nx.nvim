@@ -1,4 +1,4 @@
-# nx.nvim 🌐
+# nx.nvim
 
 _Utility library to n<sup>x</sup> up your work with the nvim api._
 
@@ -64,8 +64,8 @@ nx.map({
 
 <br>
 
-<details>
-<summary><b>Detailed Examples</b> <sub><sup>click to expand...</sup></sub></summary><br>
+<details open>
+<summary><b>Detailed Examples</b> <sub><sup>click to close...</sup></sub></summary><br>
 
 - ##### Feature overview
 
@@ -182,27 +182,41 @@ nx.map({
 
   <!-- panvimdoc-ignore-start -->
 
-   <table>
-     <tr align="center">
-       <td width="400" >
-         <a href="./preview/wk-labels-search.png">
-         <img src="./preview/wk-labels-search.png">
-         </a>
-         <sup><em>E.g., <code>Search</code> group</em></sup><br>
-         <sup><em>🟣 desc labels | 🔵 custom labels</em></sup>
-       </td>
-       <td width="400">
-         <a href="./preview/wk-labels-toggle.png"><img src="./preview/wk-labels-toggle.png"></a>
-         <sup><em>E.g., <code>Toggle</code> group</em></sup><br>
-         <sup><em>🟣 desc labels | 🔵 custom labels</em></sup>
-       </td>
-       <td width="400">
-         <a href="./preview/desc-search.png"><img src="./preview/desc-search.png"></a>
-         <sup><em>Preserve searchable description<br></em></sup>
-         <sup><em>e.g.: <code>:Telescope keymaps</code></em></sup>
-       </td>
-     </tr>
-   </table>
+  <table>
+    <tr align="center">
+      <td width="400">
+        <a href="https://user-images.githubusercontent.com/34311583/219030703-2592465d-6d3e-4283-ab0d-7e00c343e651.png">
+          <img src="https://user-images.githubusercontent.com/34311583/219030703-2592465d-6d3e-4283-ab0d-7e00c343e651.png" />
+        </a>
+        <sup>
+          <em>E.g., <code>Search</code> group</em>
+        </sup>
+        <br />
+        <sup><em>🟣 desc labels | 🔵 custom labels</em></sup>
+      </td>
+      <td width="400">
+        <a href="https://user-images.githubusercontent.com/34311583/219030828-1531aa9a-3fe1-4da1-96d9-0c558046df75.png">
+          <img src="https://user-images.githubusercontent.com/34311583/219030828-1531aa9a-3fe1-4da1-96d9-0c558046df75.png" />
+        </a>
+        <sup>
+          <em>E.g., <code>Toggle</code> group</em>
+        </sup>
+        <br />
+        <sup><em>🟣 desc labels | 🔵 custom labels</em></sup>
+      </td>
+      <td width="400">
+        <a href="https://user-images.githubusercontent.com/34311583/219030985-6c54cfca-b088-435b-b8b4-f596fa242056.png">
+          <img src="https://user-images.githubusercontent.com/34311583/219030985-6c54cfca-b088-435b-b8b4-f596fa242056.png" />
+        </a>
+        <sup>
+          <em>Preserve searchable description<br /></em>
+        </sup>
+        <sup>
+          <em>e.g.: <code>:Telescope keymaps</code></em>
+        </sup>
+      </td>
+    </tr>
+  </table>
 
   <!-- panvimdoc-ignore-end -->
 
@@ -243,30 +257,29 @@ nx.map({
   <table>
     <tr align="center">
       <td>
-        <a href="./preview/lsp-hover.png">
-        <img src="./preview/lsp-hover.png">
+        <a href="https://user-images.githubusercontent.com/34311583/219031105-f29cf684-dc64-4f63-8a05-e310e434b4ba.png">
+          <img src="https://user-images.githubusercontent.com/34311583/219031105-f29cf684-dc64-4f63-8a05-e310e434b4ba.png" />
         </a>
         <sup><em>function hover</em></sup>
       </td>
       <td>
-        <a href="./preview/lsp-field-hover.png">
-        <img src="./preview/lsp-field-hover.png">
+        <a href="https://user-images.githubusercontent.com/34311583/219031245-23176c70-bdb7-424d-a209-6af79fc757e8.png">
+          <img src="https://user-images.githubusercontent.com/34311583/219031245-23176c70-bdb7-424d-a209-6af79fc757e8.png" />
         </a>
         <sup><em>field hover</em></sup>
       </td>
     </tr>
-    <tr>
-    </tr>
+    <tr></tr>
     <tr align="center">
       <td>
-        <a href="./preview/lsp-cmp.png">
-        <img src="./preview/lsp-cmp.png" />
+        <a href="https://user-images.githubusercontent.com/34311583/219031260-c321d48d-f7ae-4e3f-b2ec-8cb7265a4905.png">
+          <img src="https://user-images.githubusercontent.com/34311583/219031260-c321d48d-f7ae-4e3f-b2ec-8cb7265a4905.png" />
         </a>
         <sup><em>cmp</em></sup>
       </td>
       <td>
-        <a href="./preview/lsp-warning.png">
-        <img src="./preview/lsp-warning.png" />
+        <a href="https://user-images.githubusercontent.com/34311583/219030703-2592465d-6d3e-4283-ab0d-7e00c343e651.png">
+          <img src="https://user-images.githubusercontent.com/34311583/219031166-52da4130-7f98-41bd-a783-07915ea74859.png" />
         </a>
         <sup><em>diagnostic</em></sup>
       </td>
