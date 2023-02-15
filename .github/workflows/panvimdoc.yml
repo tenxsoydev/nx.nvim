@@ -25,5 +25,5 @@ jobs:
       - name: Commit docs
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "ci: auto generate vim docs"
+          commit_message: "docs: auto generate vim docs"
           branch: ${{ github.head_ref }}
