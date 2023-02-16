@@ -64,8 +64,8 @@ nx.map({
 
 <br>
 
-<details open>
-<summary><b>Detailed Examples</b> <sub><sup>click to close...</sup></sub></summary><br>
+<details>
+<summary><b>Detailed Examples</b> <sub><sup>click to expand...</sup></sub></summary><br>
 
 - ##### Feature overview
 
