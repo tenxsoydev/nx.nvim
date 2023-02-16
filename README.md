@@ -223,7 +223,7 @@ nx.map({
   The example below uses `wk_label` for a "`SnipRun`-keymap-family". It excludes the string `"SnipRun"` from being added to every entry on their which-key page.
 
   ```lua
-  ---@ method 1: custom a `wk_label` per key
+  ---@ method 1: a custom `wk_label` per key
   nx.map {
      { "<leader>Rc", "<Cmd>SnipClose<CR>", desc = "Close SnipRun", wk_label = "Close" },
      { "<leader>Rf", "<Cmd>%SnipRun<CR>", desc = "Run File" },
