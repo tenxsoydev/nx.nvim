@@ -90,9 +90,7 @@ NX.MAP                                                             *nx-nx.map*
 map() Examples                         <br>
 
 
-<details open>
-
-Detailed Examples ~ <sub><sup>click to close…</sup></sub>
+Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
 
 <br>
 
