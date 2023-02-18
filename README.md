@@ -19,26 +19,13 @@ _Utility library to n^x your work with the nvim api._
 
 ## Features
 
-All features maintain familiarity with their underlying base functions and should feel intuitive to use. Below is an overview of their differences and extended functionalities.
+All features maintain familiarity with their underlying base functions. Below is an overview of their differences and extended functionalities.
 
 <br>
 
 ## nx.map
 
 **Based on `vim.keymap.set()`**
-
-**Differences**
-
-- Map single or multiple keymaps
-- The only required values are index `[1]`: _lhs_ and `[2]`: _rhs_
-- `mode`: defaults to `"n"` and instead of being passed as index `[1]` it is optional as `[3]` or `mode` key
-- `opts`: are passed inline instead of in a separate table
-  - additional options:
-    - `wk_label`: to create which-key labels that should differ from the key's description
-    - `ft`: to create filetype specific mappings
-  - `{<wrapper_opts>}`: to add options to all keymaps within a `nx.map()`
-
-#### map() Examples
 
 ```lua
 nx.map({
@@ -61,6 +48,17 @@ nx.map({
    }, { expr = true, silent = true })
 })
 ```
+
+**Differences**
+
+- Map single or multiple keymaps
+- The only required values are index `[1]`: _lhs_ and `[2]`: _rhs_
+- `mode`: defaults to `"n"` and instead of being passed as index `[1]` it is optional as `[3]` or `mode` key
+- `opts`: are passed inline instead of in a separate table
+  - additional options:
+    - `wk_label`: to create which-key labels that should differ from the key's description
+    - `ft`: to create filetype specific mappings
+  - `{<wrapper_opts>}`: to add options to all keymaps within a `nx.map()`
 
 <br>
 
@@ -298,6 +296,16 @@ nx.map({
 
 **Based on `nvim_set_hl()`**
 
+```lua
+nx.hl({
+ { "LineNr", fg = "DraculaComment:fg" },
+ { "Normal", bg = "DraculaBg:bg" },
+ { "BgDarker", bg = palette.bg .. ":#b-15" },
+ { "BufferLineSeparatorShadow", fg = "TabLine:bg:#b-10", bg = "Normal:bg" } }
+ { { "Directory", "MarkSign" }, link = "DraculaPurple" },
+})
+```
+
 **Differences**
 
 - Set single or multiple highlights
@@ -308,18 +316,6 @@ nx.map({
   - `:bg|:fg`: to use single values of other highlights as color source instead of linking the whole group.
   - `:#b`: to transform the brightness of a color
 - `{<wrapper_opts>}` to add values to all highlights within a `nx.hl()`
-
-#### hl() Examples
-
-```lua
-nx.hl({
- { "LineNr", fg = "DraculaComment:fg" },
- { "Normal", bg = "DraculaBg:bg" },
- { "BgDarker", bg = palette.bg .. ":#b-15" },
- { "BufferLineSeparatorShadow", fg = "TabLine:bg:#b-10", bg = "Normal:bg" } }
- { { "Directory", "MarkSign" }, link = "DraculaPurple" },
-})
-```
 
 <br>
 
@@ -372,16 +368,6 @@ nx.hl({
 
 **Based on `nvim_create_autocmd()`**
 
-**Differences**
-
-- Create single or multiple auto commands
-- `opts`: are passed inline instead of in a separate table
-  - additional options:
-    - `create_group`: to create a group and add the `autocmd|autocmd[]` to that group
-  - `{<wrapper_opts>}` to add values to all autocmds within a `nx.au()`
-
-#### au() Examples
-
 ```lua
 nx.au({
    { "BufWritePost", pattern = "options.lua", command = "source <afile>", desc = "Execute files on save" },
@@ -392,6 +378,14 @@ nx.au({
    { "BufWinEnter", pattern = "*.*", command = "silent! loadview" },
 }, { create_group = "RememberFolds" })
 ```
+
+**Differences**
+
+- Create single or multiple auto commands
+- `opts`: are passed inline instead of in a separate table
+  - additional options:
+    - `create_group`: to create a group and add the `autocmd|autocmd[]` to that group
+  - `{<wrapper_opts>}` to add values to all autocmds within a `nx.au()`
 
 <br>
 
@@ -442,15 +436,6 @@ nx.au({
 
 **Based on `nvim_create_user_command()`**
 
-**Differences**
-
-- Create single or multiple commands
-- The only required values are index `[1]`: _name_ and `[2]`: _command_
-- `opts`: are passed inline instead of in a separate table
-- `{<wrapper_opts>}` to add values to all commands within a `nx.cmd()`
-
-#### cmd() Examples
-
 ```lua
 nx.cmd({
   "LspFormat",
@@ -459,6 +444,13 @@ nx.cmd({
   desc = "Fromat the Current Buffer",
 })
 ```
+
+**Differences**
+
+- Create single or multiple commands
+- The only required values are index `[1]`: _name_ and `[2]`: _command_
+- `opts`: are passed inline instead of in a separate table
+- `{<wrapper_opts>}` to add values to all commands within a `nx.cmd()`
 
 <br>
 
@@ -490,8 +482,6 @@ There is also `nx.set` to assign multiple variables or options.
 Next to an array of variables/settings, add the scope (`vim.g|vim.opt|vim.bo|...`) as a second parameter. If no scope is specified `vim.g` is used.
 
 (This features function currently consists of just over 10 lines of code. It's not as extensive or well annotated, but feel free to use it if you like).
-
-#### set() Examples
 
 <details>
 
