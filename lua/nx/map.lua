@@ -52,8 +52,9 @@ local wk_ok, wk = pcall(require, "which-key")
 ---@param sub_pattern string
 ---@return string
 local function sub_desc_to_label(desc, sub_pattern)
-	-- additionally to pattern removal, trunc leading and trailing spaces
-	return desc:gsub(sub_pattern, ""):match("^%s*(.-)%s*$")
+	-- in addition to pattern removal, truncate spaces
+	local label = desc:gsub(sub_pattern .. "%s+", "")
+	return label
 end
 
 ---@param map NxMap
