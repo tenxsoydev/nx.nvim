@@ -53,7 +53,7 @@ local wk_ok, wk = pcall(require, "which-key")
 ---@return string
 local function sub_desc_to_label(desc, sub_pattern)
 	-- in addition to pattern removal, truncate spaces
-	local label = desc:gsub(sub_pattern .. "%s+", "")
+	local label = desc:gsub(sub_pattern .. "[%s+]?", "")
 	return label
 end
 
