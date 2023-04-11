@@ -60,6 +60,9 @@ return function(set_table, scope)
 		if scope == vim.opt and string.find(k, "__append") then
 			k = k:gsub("__append", "")
 			scope[k]:append(v)
+		elseif scope == vim.opt and string.find(k, "__remove") then
+			k = k:gsub("__remove", "")
+			scope[k]:remove(v)
 		else
 			scope[k] = v
 		end
