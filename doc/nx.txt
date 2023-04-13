@@ -4,21 +4,21 @@
 Table of Contents                                       *nx-table-of-contents*
 
 1. nx.nvim                                                        |nx-nx.nvim|
-  - Features                                                     |nx-features|
-  - nx.map                                                         |nx-nx.map|
-  - nx.hl                                                           |nx-nx.hl|
-  - nx.au                                                           |nx-nx.au|
-  - nx.cmd                                                         |nx-nx.cmd|
-  - nx.set                                                         |nx-nx.set|
-  - Getting Started                                       |nx-getting-started|
-  - Contribution                                             |nx-contribution|
+  - Features                                             |nx-nx.nvim-features|
+  - nx.map                                                 |nx-nx.nvim-nx.map|
+  - nx.hl                                                   |nx-nx.nvim-nx.hl|
+  - nx.au                                                   |nx-nx.nvim-nx.au|
+  - nx.cmd                                                 |nx-nx.nvim-nx.cmd|
+  - nx.set                                                 |nx-nx.nvim-nx.set|
+  - Getting Started                               |nx-nx.nvim-getting-started|
+  - Contribution                                     |nx-nx.nvim-contribution|
 
 ==============================================================================
 1. nx.nvim                                                        *nx-nx.nvim*
 
 _Utility library to n^x your work with the nvim api._
 
-<br>
+
 
 **Features**
 
@@ -28,32 +28,32 @@ _Utility library to n^x your work with the nvim api._
 - |nx-autocommands|
 - |nx-commands|
 
-
 **Installation**
 
 
 - |nx-getting-started|
 
 
-<br>
 
-FEATURES                                                         *nx-features*
+
+FEATURES                                                 *nx-nx.nvim-features*
 
 All features maintain familiarity with their underlying base functions. Below
 is an overview of their differences and extended functionalities.
 
-<br>
 
-NX.MAP                                                             *nx-nx.map*
 
-**Based on `vim.keymap.set()`**
+
+NX.MAP                                                     *nx-nx.nvim-nx.map*
+
+**Based on vim.keymap.set()**
 
 >lua
     nx.map({
        { ";w", "<Cmd>w<CR>" },
-       { ";q", "<Cmd>confirm quit<CR>", desc = "Close Current Window" }, {
-       { "<leader>ts", "<Cmd>set spell!<CR>", desc = "Toggle Spellcheck", wk_label = "Spellcheck"} },
-       { "<leader>tp", "<Cmd>MarkdownPreviewToggle<CR>", ft = "markdown", desc = "Toggle Markdown Preview" }
+       { ";q", "<Cmd>confirm quit<CR>", desc = "Close Current Window" },
+       { "<leader>ts", "<Cmd>set spell!<CR>", desc = "Toggle Spellcheck", wk_label = "Spellcheck" },
+       { "<leader>tp", "<Cmd>MarkdownPreviewToggle<CR>", ft = "markdown", desc = "Toggle Markdown Preview" },
     })
     -- ...
     nx.map({
@@ -70,7 +70,6 @@ NX.MAP                                                             *nx-nx.map*
     })
 <
 
-
 **Differences**
 
 
@@ -84,11 +83,10 @@ NX.MAP                                                             *nx-nx.map*
     - `{<wrapper_opts>}`: to add options to all keymaps within a `nx.map()`
 
 
-<br>
 
-Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
+Detailed Examples click to expand… ~
 
-<br>
+
 
 
 - FEATURE OVERVIEW
@@ -117,7 +115,6 @@ Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
            ---@ set filetype keymaps ──╮ (in {wrapper_opts} or for single keymaps)
         }, { buffer = 0, ft = "DressingInput" })
     <
-    <br>
 - MODE
     Specify a `mode|mode[]` other than `"n"` as index `[3]` or `mode` key (inline
     or in `wrapper_opts`).
@@ -128,12 +125,10 @@ Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
         { "<kEnter>", "<CR>", desc = "Enter", mode = { "", "!" } }
         }, { mode = { "", "!" }) -- or in wrapper_opts (here it has to be the `mode` key)
     <
-    <br>
 - WRAPPER OPTIONS
     Add options to all entries in a list of keymaps _- inline keymap options are
     treated with higher priority and won’t be overwritten by wrapper options_. As
-    an example let’s use nx.map for <a target="_blank"
-    href="https://github.com/neovim/nvim-lspconfig#suggested-configuration">nvim-lspconfig#suggested-configuration</a>
+    an example let’s use nx.map for nvim-lspconfig#suggested-configuration
     >lua
         ---@ common
         
@@ -190,7 +185,6 @@ Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
            }, { noremap = true, silent = true, buffer = bufnr })
         end
     <
-    <br>
 - CUSTOM WHICH-KEY LABELS
     Register which-key labels that should differ from the mappings’ description.
     They can be a `string` literal, `"ignore"`(^=`"which_key_ignore"`), or `{
@@ -220,20 +214,18 @@ Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
            { "<leader>RR", "<Esc><Cmd>'<,'>SnipRun<CR>", "v", desc = "SnipRun Range" },
         }, { wk_label = { sub_desc = "SnipRun" } })
     <
-    <br>
 - TYPE ANNOTATIONS
     Allow your language server to assist you with hovers, completions, and
     diagnostics.
     This requires your runtime environment to be configured to include your plugin
-    directories. An easy way is to have this automated using <a target="_blank"
-    href="https://github.com/folke/neodev.nvim">folke/neodev.nvim</a>.
+    directories. An easy way is to have this automated using folke/neodev.nvim.
 
 
-<br>
 
-NX.HL                                                               *nx-nx.hl*
 
-**Based on `nvim_set_hl()`**
+NX.HL                                                       *nx-nx.nvim-nx.hl*
+
+**Based on nvim_set_hl()**
 
 >lua
     nx.hl({
@@ -244,7 +236,6 @@ NX.HL                                                               *nx-nx.hl*
      { { "Directory", "MarkSign" }, link = "DraculaPurple" },
     })
 <
-
 
 **Differences**
 
@@ -259,11 +250,10 @@ NX.HL                                                               *nx-nx.hl*
 - `{<wrapper_opts>}` to add values to all highlights within a `nx.hl()`
 
 
-<br>
 
-Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
+Detailed Examples click to expand… ~
 
-<br>
+
 
 
 - FEATURE OVERVIEW
@@ -288,7 +278,6 @@ Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
         }, { bold = true, italic = true })
         ---@    ╰── wrapper opts apply values to all entries
     <
-    <br>
 - WRAPPER OPTIONS
     Add values to all entries in a list of highlights _- inline values are treated
     with higher priority and won’t be overwritten by wrapper options_.
@@ -301,11 +290,11 @@ Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
     <
 
 
-<br>
 
-NX.AU                                                               *nx-nx.au*
 
-**Based on `nvim_create_autocmd()`**
+NX.AU                                                       *nx-nx.nvim-nx.au*
+
+**Based on nvim_create_autocmd()**
 
 >lua
     nx.au({
@@ -318,7 +307,6 @@ NX.AU                                                               *nx-nx.au*
     }, { create_group = "RememberFolds" })
 <
 
-
 **Differences**
 
 
@@ -329,11 +317,10 @@ NX.AU                                                               *nx-nx.au*
     - `{<wrapper_opts>}` to add values to all autocmds within a `nx.au()`
 
 
-<br>
 
-Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
+Detailed Examples click to expand… ~
 
-<br>
+
 
 
 - FEATURE DESCRIPTION
@@ -347,7 +334,6 @@ Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
         }, { pattern = "*.*" })
         ---@     ╰── wrapper opts apply values to all entries without them
     <
-    <br>
 - AUTOCOMMAND GROUPS
     Besides the usual adding to existing autocommand groups using the `group` key,
     it is possible to create autocommand groups on the fly with the `create_group`
@@ -370,11 +356,11 @@ Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
     <
 
 
-<br>
 
-NX.CMD                                                             *nx-nx.cmd*
 
-**Based on `nvim_create_user_command()`**
+NX.CMD                                                     *nx-nx.nvim-nx.cmd*
+
+**Based on nvim_create_user_command()**
 
 >lua
     nx.cmd({
@@ -385,7 +371,6 @@ NX.CMD                                                             *nx-nx.cmd*
     })
 <
 
-
 **Differences**
 
 
@@ -395,11 +380,10 @@ NX.CMD                                                             *nx-nx.cmd*
 - `{<wrapper_opts>}` to add values to all commands within a `nx.cmd()`
 
 
-<br>
 
-Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
+Detailed Examples click to expand… ~
 
-<br>
+
 
 
 - FEATURE DESCRIPTION
@@ -416,9 +400,9 @@ Detailed Examples ~ <sub><sup>click to expand…</sup></sub>
     <
 
 
-<br>
 
-NX.SET                                                             *nx-nx.set*
+
+NX.SET                                                     *nx-nx.nvim-nx.set*
 
 There is also `nx.set` to assign multiple variables or options.
 
@@ -430,9 +414,9 @@ Next to an array of variables/settings, add the scope
 It’s not as extensive or well annotated, but feel free to use it if you
 like).
 
-Details ~ <sub><sup>click to expand…</sup></sub>
+Details click to expand… ~
 
-<br>
+
 
 
 - Variables
@@ -483,21 +467,19 @@ Details ~ <sub><sup>click to expand…</sup></sub>
     <
 
 
-<br>
 
-GETTING STARTED                                           *nx-getting-started*
+
+GETTING STARTED                                   *nx-nx.nvim-getting-started*
 
 Install `"tenxsoydev/nx.nvim"` via your favorite plugin manager.
 
-The only thing left to do then is to import the `nx` functions you want to
-use.<br>
-
-                                                                 *nx-Examples*
+The only thing left to do then is to import the `nx` functions you want to use.
 
 
-- Examples                               Set it once as global variable, so it
-                                           can be called anywhere in a
-                                           configuration
+EXAMPLES
+
+
+- Set it once as global variable, so it can be called anywhere in a configuration
     >lua
         -- if using a global variable, make sure it's set where it will be loaded before it's used in another place
         _G.nx = require("nx")
@@ -530,7 +512,7 @@ use.<br>
     <
 
 
-<br>
+
 
 REUSABILITY ~
 
@@ -540,9 +522,10 @@ working - and adding dependencies is too heavy - they are light copy pasta
 🍝. In such cases, keeping a small reference of attribution warms the heart
 of your fellow developer.
 
-<br>
 
-CONTRIBUTION                                                 *nx-contribution*
+
+
+CONTRIBUTION                                         *nx-nx.nvim-contribution*
 
 There is always room for enhancement. Reach out if you experience any issues,
 would like to request a feature, or submit improvements. If you would like to
@@ -550,7 +533,7 @@ tackle open issues - they are usually "help wanted" by nature. Leaving an emoji
 to show support for an idea that has already been requested also helps to
 prioritize community needs.
 
-<br>
+
 
 ------------------------------------------------------------------------------
 
@@ -558,7 +541,6 @@ CREDITS ~
 
 
 - nxvim <https://github.com/tenxsoydev/nxvim/>
-
 
 Generated by panvimdoc <https://github.com/kdheepak/panvimdoc>
 
