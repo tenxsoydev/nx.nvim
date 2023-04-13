@@ -84,7 +84,7 @@ NX.MAP                                                     *nx-nx.nvim-nx.map*
 
 
 
-Detailed Examples click to expand… ~
+Detailed Examples Toggle visibility… ~
 
 
 
@@ -251,7 +251,7 @@ NX.HL                                                       *nx-nx.nvim-nx.hl*
 
 
 
-Detailed Examples click to expand… ~
+Detailed Examples Toggle visibility… ~
 
 
 
@@ -318,7 +318,7 @@ NX.AU                                                       *nx-nx.nvim-nx.au*
 
 
 
-Detailed Examples click to expand… ~
+Detailed Examples Toggle visibility… ~
 
 
 
@@ -381,7 +381,7 @@ NX.CMD                                                     *nx-nx.nvim-nx.cmd*
 
 
 
-Detailed Examples click to expand… ~
+Detailed Examples Toggle visibility… ~
 
 
 
@@ -414,7 +414,7 @@ Next to an array of variables/settings, add the scope
 It’s not as extensive or well annotated, but feel free to use it if you
 like).
 
-Details click to expand… ~
+Details Toggle visibility… ~
 
 
 
