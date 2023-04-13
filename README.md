@@ -30,9 +30,9 @@ All features maintain familiarity with their underlying base functions. Below is
 ```lua
 nx.map({
    { ";w", "<Cmd>w<CR>" },
-   { ";q", "<Cmd>confirm quit<CR>", desc = "Close Current Window" }, {
-   { "<leader>ts", "<Cmd>set spell!<CR>", desc = "Toggle Spellcheck", wk_label = "Spellcheck"} },
-   { "<leader>tp", "<Cmd>MarkdownPreviewToggle<CR>", ft = "markdown", desc = "Toggle Markdown Preview" }
+   { ";q", "<Cmd>confirm quit<CR>", desc = "Close Current Window" },
+   { "<leader>ts", "<Cmd>set spell!<CR>", desc = "Toggle Spellcheck", wk_label = "Spellcheck" },
+   { "<leader>tp", "<Cmd>MarkdownPreviewToggle<CR>", ft = "markdown", desc = "Toggle Markdown Preview" },
 })
 -- ...
 nx.map({
