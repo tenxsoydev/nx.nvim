@@ -62,8 +62,8 @@ nx.map({
 
 <br>
 
-<details>
-<summary><b>Detailed Examples</b> <sub><sup>click to expand...</sup></sub></summary><br>
+<details open>
+<summary><b>Detailed Examples</b> <sub><sup>Toggle visibility...</sup></sub></summary><br>
 
 - ##### Feature overview
 
@@ -320,7 +320,7 @@ nx.hl({
 <br>
 
 <details>
-<summary><b>Detailed Examples</b> <sub><sup>click to expand...</sup></sub></summary><br>
+<summary><b>Detailed Examples</b> <sub><sup>Toggle visibility...</sup></sub></summary><br>
 
 - ##### Feature overview
 
@@ -390,7 +390,7 @@ nx.au({
 <br>
 
 <details>
-<summary><b>Detailed Examples</b> <sub><sup>click to expand...</sup></sub></summary><br>
+<summary><b>Detailed Examples</b> <sub><sup>Toggle visibility...</sup></sub></summary><br>
 
 - ##### Feature Description
 
@@ -455,7 +455,7 @@ nx.cmd({
 <br>
 
 <details>
-<summary><b>Detailed Examples</b> <sub><sup>click to expand...</sup></sub></summary><br>
+<summary><b>Detailed Examples</b> <sub><sup>Toggle visibility...</sup></sub></summary><br>
 
 - ##### Feature Description
 
@@ -485,7 +485,7 @@ Next to an array of variables/settings, add the scope (`vim.g|vim.opt|vim.bo|...
 
 <details>
 
-<summary><b>Details</b> <sub><sup>click to expand...</sup></sub></summary><br>
+<summary><b>Details</b> <sub><sup>Toggle visibility...</sup></sub></summary><br>
 
 - Variables
 
