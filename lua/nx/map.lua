@@ -215,7 +215,7 @@ return function(nx_map, wrapper_opts)
 
 	-- handle single keymap
 	if
-		(type(nx_map[1]) == "string" or type(nx_map[1] == "table"))
+		(type(nx_map[1]) == "string" or type(nx_map[1]) == "table")
 		and (type(nx_map[2]) == "string" or type(nx_map[2]) == "function")
 	then
 		if nx_map.ft or wrapper_opts.ft then
