@@ -90,7 +90,7 @@ describe("NxMap", function()
 
 		local wk_key = require("which-key.keys").mappings.n.tree.root.children.j.mapping
 		assert.equals(wk_key.desc, desc)
-		assert.equals(wk_key.label, label)
+		assert.equals(wk_key.opts.desc, label)
 
 		-- use a substring of the mappings description as label
 		map({
@@ -101,12 +101,12 @@ describe("NxMap", function()
 		vim.wait(1, wk.load)
 
 		local toggle_mapping = filter(
-			function(k) return k.mapping.label == "Whitespace Characters" end,
+			function(k) return k.mapping.desc == "Toggle Whitespace Characters" end,
 			require("which-key.keys").mappings.n.tree.root.children.t.children
 		)[1].mapping
 
 		assert.equals(toggle_mapping.desc, "Toggle Whitespace Characters")
-		assert.equals(toggle_mapping.label, "Whitespace Characters")
+		assert.equals(toggle_mapping.opts.desc, "Whitespace Characters")
 
 		-- test deriving a substring with wrapper opts
 		map({
@@ -117,20 +117,15 @@ describe("NxMap", function()
 		wk.setup()
 		vim.wait(1, wk.load)
 
+		local wk_keys = require("which-key.keys").mappings.n.tree.root.children.s.children
 		local search_mappings = {
-			files = filter(
-				function(k) return k.mapping.label == "Files" end,
-				require("which-key.keys").mappings.n.tree.root.children.s.children
-			)[1].mapping,
-			registers = filter(
-				function(k) return k.mapping.label == "Registers" end,
-				require("which-key.keys").mappings.n.tree.root.children.s.children
-			)[1].mapping,
+			files = filter(function(k) return k.mapping.keys.keys == "sf" end, wk_keys)[1].mapping,
+			registers = filter(function(k) return k.mapping.keys.keys == "sr" end, wk_keys)[1].mapping,
 		}
 
 		assert.equals(search_mappings.files.desc, "Search Files")
-		assert.equals(search_mappings.files.label, "Files")
+		assert.equals(search_mappings.files.opts.desc, "Files")
 		assert.equals(search_mappings.registers.desc, "Search Registers")
-		assert.equals(search_mappings.registers.label, "Registers")
+		assert.equals(search_mappings.registers.opts.desc, "Registers")
 	end)
 end)
