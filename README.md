@@ -37,7 +37,7 @@ vim.keymap.set('', "<Down>", "&wrap ? 'gj' : 'j'", { expr = true, silent = true 
 nx.map({
    { ";w", "<Cmd>w<CR>" },
    { ";q", "<Cmd>confirm quit<CR>", desc = "Close Current Window" },
-   { { "j", "<Down>" }, "&wrap ? 'gj' : 'j'", "", { expr = true, silent = true } },
+   { { "j", "<Down>" }, "&wrap ? 'gj' : 'j'", "", expr = true, silent = true },
 })
 ```
 
