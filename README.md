@@ -28,23 +28,34 @@ All features maintain familiarity with their underlying base functions. Below is
 **Based on `vim.keymap.set()`**
 
 ```lua
+vim.keymap.set('n', ';w', "<Cmd>w<CR>")
+vim.keymap.set('n', ';q', "<Cmd>w<CR>", { desc = "Close Current Window" })
+vim.keymap.set('', "j", "&wrap ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set('', "<Down>", "&wrap ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Can be written as
 nx.map({
    { ";w", "<Cmd>w<CR>" },
    { ";q", "<Cmd>confirm quit<CR>", desc = "Close Current Window" },
+   { { "j", "<Down>" }, "&wrap ? 'gj' : 'j'", "", { expr = true, silent = true } },
+})
+```
+
+```lua
+-- Options like filetype and wk_label are not directly supported by vim.keymap.set
+nx.map({
    { "<leader>ts", "<Cmd>set spell!<CR>", desc = "Toggle Spellcheck", wk_label = "Spellcheck" },
    { "<leader>tp", "<Cmd>MarkdownPreviewToggle<CR>", ft = "markdown", desc = "Toggle Markdown Preview" },
 })
--- ...
+-- Wrapper options
 nx.map({
    -- Line Navigation
-   { { "j", "<Up>" }, "&wrap ? 'gj' : 'j'", "" },
-   { { "k", "<Down>" }, "&wrap ? 'gk' : 'k'", "" },
+   { { "j", "<Down>" }, "&wrap ? 'gj' : 'j'", "" },
+   { { "k", "<Up>" }, "&wrap ? 'gk' : 'k'", "" },
    { "$", "&wrap ? 'g$' : '$'", "" },
-   { "^", "&wrap ? 'g^' : '^'", mode = "" },
-   -- Indentation
-   { "i", function() return smart_indent "i" end },
-   { "a", function() return smart_indent "a" end },
-   { "A", function() return smart_indent "A" end },
+   { "^", "&wrap ? 'g^' : '^'", "" },
+   -- Enter insert mode at indentation level on empty lines
+   { "i", "len(getline('.')) == 0 ? '\"_cc' : 'i'"  },
    }, { expr = true, silent = true })
 })
 ```
@@ -111,10 +122,11 @@ nx.map({
 
 - ##### Wrapper options
 
-  Add options to all entries in a list of keymaps _- inline keymap options are treated with higher priority and won't be overwritten by wrapper options_. As an example let's use nx.map for <a target="_blank" href="https://github.com/neovim/nvim-lspconfig#suggested-configuration">nvim-lspconfig#suggested-configuration</a>
+  Add options to all entries in a list of keymaps _- inline keymap options are treated with higher priority and won't be overwritten by wrapper options_.
+  As an example, let's compare nx.map for setting [neovim/nvim-lspconfig#suggested-configuration](https://github.com/neovim/nvim-lspconfig/tree/v0.1.6?tab=readme-ov-file#suggested-configuration).
 
   ```lua
-  ---@ common
+  ---@ reference using the default vim.keymap.set
 
   local opts = { noremap=true, silent=true }
   vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
@@ -222,7 +234,7 @@ nx.map({
 
   ```lua
   ---@ method 1: a custom `wk_label` per key
-  nx.map {
+  nx.map({
      { "<leader>Rc", "<Cmd>SnipClose<CR>", desc = "Close SnipRun", wk_label = "Close" },
      { "<leader>Rf", "<Cmd>%SnipRun<CR>", desc = "Run File" },
      { "<leader>Ri", "<Cmd>SnipInfo<CR>", desc = "SnipRun Info", wk_label = "Info" },
@@ -230,7 +242,7 @@ nx.map({
      { "<leader>Rr", "<Cmd>SnipReset<CR>", desc = "Reset SnipRun", wk_label = "Reset" },
      { "<leader>Rx", "<Cmd>SnipTerminate<CR>", desc = "Terminate SnipRun", wk_label = "Terminate" },
      { "<leader>R", "<Esc><Cmd>'<,'>SnipRun<CR>", "v", desc = "SnipRun Range", wk_label = "Run Range" },
-  }
+  })
 
   ---@ method 2: use `sub_desc` in `wrapper_opts` to remove `SnipRun` from all entries
   nx.map({
